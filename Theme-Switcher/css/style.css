@@ -2,6 +2,9 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Montserrat', sans-serif;
+    color: var(--text);
+    background-color: var(--bg);
+    transition: background-color 500ms ease-in-out, color 1000ms ease-in-out;
 }
 
 ul {
@@ -18,8 +21,8 @@ a {
 .navbar {
     height: 70px;
     width: 100%;
-    background-color: black;
-    color: white;
+    background: var(--bg-nav);
+    color: var(--text);
 }
 
 .navbar-nav {
@@ -31,7 +34,7 @@ a {
 
 header {
     padding: 0;
-    background-color: red;
+    background: var(--bg-nav);
     margin-bottom: 1em;
     padding-bottom: 3.5em;
     text-align: center;
@@ -43,8 +46,8 @@ header {
     width: 500px;
     opacity: 0;
     z-index: 2;
-    background-color: blue;
-    border-top: 2px solid white;
+    background-color: var(--bg-dropdown);
+    border-top: 2px solid var(--border-color);
 
     border-radius: 0 0 8px 8px;
 
@@ -77,11 +80,66 @@ header {
 
 .dropdown-item a::before {
     content: ' ';
-    border: 2px solid white;
+    border: 2px solid var(--border-color);
     border-radius: 50%;
     width: 2rem;
     height: 2rem;
     display: inline-block;
     vertical-align: middle;
     margin-right: 10px;
+}
+
+/*Themes*/
+
+:root {
+    --gray0: #f8f8f8;
+    --gray1: #dbe1e8;
+    --gray2: #b2becd;
+    --gray3: #6c7983;
+    --gray4: #454e56;
+    --gray5: #2a2e35;
+    --gray6: #12181b;
+    --blue: #0084a5;
+    --purple: #a82dd1;
+    --yellow: #fff565;
+}
+
+.light {
+    --bg: var(--gray0);
+    --bg-nav: linear-gradient(to right, var(--gray1), var(--gray3));
+    --bg-dropdown: var(--gray0);
+    --text: var(--gray6);
+    --border-color: var(--blue);
+    --bg-solar: var(--yellow);
+}
+
+.dark {
+    --bg: var(--gray5);
+    --bg-nav: linear-gradient(to right, var(--gray5), var(--gray6));
+    --bg-dropdown: var(--gray6);
+    --text: var(--gray0);
+    --border-color: var(--purple);
+    --bg-solar: var(--blue);
+}
+
+.solar {
+    --gray0: #fbffd4;
+    --gray1: #f7f8d0;
+    --gray2: #b6f880;
+    --gray3: #5ec72d;
+    --gray4: #3ea565;
+    --gray5: #005368;
+    --gray6: #003d4c;
+}
+
+#dark::before {
+    background: #2a2e35;
+}
+
+#light::before {
+    background: #ffffff;
+}
+
+#solar::before {
+    background: var(--bg-solar);
 }
