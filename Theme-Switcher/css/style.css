@@ -35,5 +35,5 @@ header {
     margin-bottom: 1em;
     padding-bottom: 3.5em;
     text-align: center;
-    
+    clip-path: polygon(0 0, 100% 0, 100% 65%, 50% 100%, 0 65%);
 }
