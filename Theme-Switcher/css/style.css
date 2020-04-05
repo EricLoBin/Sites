@@ -143,3 +143,19 @@ header {
 #solar::before {
     background: var(--bg-solar);
 }
+
+
+@keyframes color-rotate {
+    from {
+        filter: hue-rotate(0deg);
+    }
+    to {
+        filter: hue-rotate(360deg);
+    }
+}
+
+.logo:hover {
+    animation: color-rotate 1.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
