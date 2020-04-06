@@ -1,17 +1,21 @@
-const h1 = document.getElementsByTagName("h1");
-
-
 window.addEventListener('scroll', function () {
     var scroll = window.scrollY;
-    var percentage = document.getElementsByTagName('html');
+
+    var margin = parseFloat(window.getComputedStyle(document.body)['marginTop']) +
+               parseFloat(window.getComputedStyle(document.body)['marginBottom']);
+    
+    var totalHeight = (document.body.offsetHeight - window.innerHeight + margin);
+
+    var percentage = ((100 * scroll) / totalHeight);
 
     /**/
-    h1[0].innerHTML = scroll.toFixed();
+    const h1 = document.getElementsByTagName("h1");
+    h1[0].innerHTML = scroll.toFixed() + ' or ' + percentage + '%';
 
-    document.body.classList.add('m0')
-    console.log(document.body.offsetHeight)
-    console.log(scroll.toFixed() + ' ' + (document.body.offsetHeight - window.innerHeight));
-    document.body.classList.remove('m0')
+
+
+    console.log(scroll.toFixed() + ' ' + (totalHeight));
+    console.log('percentage: ' + percentage);
     /**/
 
 });
