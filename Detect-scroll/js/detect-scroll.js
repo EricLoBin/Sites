@@ -24,7 +24,7 @@ window.addEventListener('scroll', function () {
         h1[0].innerHTML = scroll.toFixed() + ' or ' + percentage + '%' + '<br> Top';
     }
 
-    if (percentage == 100){
+    if (percentage >= 100){
         console.log('Bottom');
         h1[0].innerHTML = scroll.toFixed() + ' or ' + percentage + '%' + '<br> Bottom';
     }
