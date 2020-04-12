@@ -8,6 +8,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     min-height: 100vh;
     background-color: #18191f;
 }
@@ -15,6 +16,7 @@ body {
 ul {
     position: relative;
     display: flex;
+    margin: 10px 0;
 }
 
 ul li {
@@ -43,7 +45,11 @@ ul li a .fa {
     transition: color 0.5s, text-shadow 0.5s;
 }
 
+ul {
+    --color-text: #00f3ff;
+}
+
 ul li a:hover .fa {
-    color: #00f3ff;
-    text-shadow: 0 0 15px #00f3ff;
+    color: var(--color-text);
+    text-shadow: 0 0 15px var(--color-text);
 }
