@@ -9,7 +9,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    min-height: 1200vh;
+    min-height: 100vh;
     background-color: #18191f;
 }
 
@@ -91,17 +91,34 @@ input[type="checkbox"] {
         inset 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
-input[type="checkbox"]:focus {
+input:checked[type="checkbox"] {
+    background: linear-gradient(0deg, #6dd1ff, #20b7ff);
     box-shadow:
+        0 0 2px #6dd1ff,
         0 0 0 4px #353535,
-        0 0 0 6px #15ffffd7,
+        0 0 0 5px #3e3e3e,
         inset 0 0 10px rgba(0, 0, 0, 1),
         0 5px 20px rgba(0, 0, 0, 0.5),
         inset 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
-input:checked[type="checkbox"] {
-    
+input[type="checkbox"]:focus {
+    box-shadow:
+        0 0 0 4px #353535,
+        0 0 0 5px #15ffffa4,
+        inset 0 0 10px rgba(0, 0, 0, 1),
+        0 5px 20px rgba(0, 0, 0, 0.5),
+        inset 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+input:checked[type="checkbox"]:focus {
+    box-shadow:
+        0 0 2px #6dd1ff,
+        0 0 0 4px #353535,
+        0 0 0 5px #15ffffa4,
+        inset 0 0 10px rgba(0, 0, 0, 1),
+        0 5px 20px rgba(0, 0, 0, 0.5),
+        inset 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 input[type="checkbox"]::before {
