@@ -45,9 +45,20 @@ ul li a .fa {
     transition: color 0.5s, text-shadow 0.5s;
 }
 
+
+
+
 ul {
     --color-text: #00f3ff;
 }
+ul:nth-child(2) {
+    --color-text: #f00;
+}
+ul:nth-child(3) {
+    --color-text: #0f0;
+}
+
+
 
 ul li a:hover .fa {
     color: var(--color-text);
