@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    height: 100vh;
+}
+
+span {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #000;
+    pointer-events: none;
+    border-radius: 50%;
+}
