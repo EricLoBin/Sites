@@ -11,10 +11,28 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     zoomOffset: -1
 }).addTo(map);
 
-const locations = [
-    [51.5, -0.09],
-    [11.4, 43],
-];
+const json = {
+    "0": {
+        "lati": "51.5",
+        "long": "-0.09"
+    },
+    "1": {
+        "lati": "11.4",
+        "long": "43"
+    }
+}
+
+var locations = [];
+
+while (locations.length < Object.keys(json).length) {
+    locations = [
+        ...locations,
+        [
+            json[locations.length].lati,
+            json[locations.length].long
+        ]
+    ];
+}
 
 var indexOfLocations = 0;
 
