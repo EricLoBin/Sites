@@ -11,32 +11,33 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     zoomOffset: -1
 }).addTo(map);
 
-const json = {
-    "0": {
-        "lati": "51.5",
-        "long": "-0.09"
-    },
-    "1": {
-        "lati": "11.4",
-        "long": "43"
-    }
-}
+var jsonData = {};
 
-var locations = [];
+fetch('./locations.json')
+    .then(function(resp) {
+        return resp.json();
+    })
+    .then(function(data) {
+        jsonData = data;
 
-while (locations.length < Object.keys(json).length) {
-    locations = [
-        ...locations,
-        [
-            json[locations.length].lati,
-            json[locations.length].long
-        ]
-    ];
-}
+        var locations = [];
 
-var indexOfLocations = 0;
+        while (locations.length < Object.keys(jsonData).length) {
+            locations = [
+                ...locations,
+                [
+                    jsonData[locations.length].lati,
+                    jsonData[locations.length].long
+                ]
+            ];
+        }
 
-while (indexOfLocations < locations.length) {
-    L.marker(locations[indexOfLocations]).addTo(map);
-    indexOfLocations += 1;
-}
+        var indexOfLocations = 0;
+
+        while (indexOfLocations < locations.length) {
+            L.marker(locations[indexOfLocations]).addTo(map);
+            indexOfLocations += 1;
+        }
+
+    });
+
