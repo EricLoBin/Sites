@@ -1,0 +1,36 @@
+/* config */
+
+:root {
+    --gap-size: 2em;
+    --wrapping-size: 800px;
+}
+
+
+/* columns */
+
+.columns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap-size);
+}
+
+.columns > * {
+    flex-basis: calc((var(--wrapping-size) - 100%) * 999);
+    flex-grow: 1;
+}
+
+
+
+
+
+
+/* \/ styles just to look better \/ */
+
+.card {
+    border: 5px solid rgb(3, 22, 75);
+    background-color: rgb(210, 255, 240);
+    box-shadow: 0 0 10px rgb(73, 73, 73);
+    padding: 10px;
+    font-family: sans-serif;
+    font-size: 1.3rem;
+}

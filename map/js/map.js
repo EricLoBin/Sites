@@ -13,8 +13,9 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 
 var jsonData = {};
 
-fetch('./locations.json')
+fetch('https://controle-mapa-mvp.herokuapp.com/locations.json', { mode: 'no-cors' })
     .then(function(resp) {
+        console.log(resp.json())
         return resp.json();
     })
     .then(function(data) {
@@ -22,22 +23,22 @@ fetch('./locations.json')
 
         var locations = [];
 
-        while (locations.length < Object.keys(jsonData).length) {
-            locations = [
-                ...locations,
-                [
-                    jsonData[locations.length].lati,
-                    jsonData[locations.length].long
-                ]
-            ];
-        }
+    while (locations.length < Object.keys(jsonData).length) {
+        locations = [
+            ...locations,
+            [
+                jsonData[locations.length].lati,
+                jsonData[locations.length].long
+            ]
+        ];
+    }
 
-        var indexOfLocations = 0;
+    var indexOfLocations = 0;
 
-        while (indexOfLocations < locations.length) {
-            L.marker(locations[indexOfLocations]).addTo(map);
-            indexOfLocations += 1;
-        }
+    while (indexOfLocations < locations.length) {
+        L.marker(locations[indexOfLocations]).addTo(map);
+        indexOfLocations += 1;
+    }
 
     });
 
